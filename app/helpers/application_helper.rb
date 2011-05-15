@@ -1,4 +1,4 @@
- module ApplicationHelper
+module ApplicationHelper
 
     # Return a title on a per-page basis.               # Комментарий к документу
     def title                                           # определение метода
