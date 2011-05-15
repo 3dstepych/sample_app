@@ -1,62 +1,63 @@
-require 'spec_helper'
+ require 'spec_helper'
 
-describe PagesController do
-  render_views
-  
+  describe PagesController do
+    render_views
+
     before(:each) do
-      @base_title = "Ruby on Rails Tutorial Sample app"
+      #
+       @base_title = "Ruby on Rails Tutorial Sample app"
+      #
     end
 
-  describe "GET 'home'" do
-  
-    it "should be successful" do
-      get 'home'
-      response.should be_success
-    end
-    
-    it "should have the right tittle" do
-      get 'home'
-      response.should have_selector ("tittle",
-                        :content => @base_title + " | Home")
-    end
-  end
+    describe "GET 'home'" do
 
-  describe "GET 'contact'" do
-    it "should be successful" do
-      get 'contact'
-      response.should be_success
-    end
-    
-    it "should have the right tittle" do
-      get 'contact'
-      response.should have_selector("tittle",
-                        :content => @base_title + " | Contact")
-    end
-  end
-  
-  describe "GET 'about'" do
-    it "should be successful" do
-      get 'about'
-      response.should be_success
+      it "should be successful" do
+	get 'home'
+	response.should be_success
       end
-      
-      it "should have the right tittle" do
-        get 'about'
-        response.should have_selector("tittle",
-                          :content => @base_title + " | About")
+
+      it "should have the right title" do
+	get 'home'
+	response.should have_selector("title",
+				      :content => @base_title + " | Home")
       end
     end
-    
-    describe "GET 'help'" do
-    it "should be successful" do
-      get 'help'
-      response.should be_success
+
+    describe "GET 'contact'" do
+      it "should be successful" do
+	get 'contact'
+	response.should be_success
+      end
+
+      it "should have the right title" do
+	get 'contact'
+	response.should have_selector("title",
+				      :content => @base_title + " | Contact")
+      end
     end
-    
-    it "should have the right tittle" do
-      get 'help'
-      response.should have_selector("tittle",
-                        :content => @base_title + " | Contact")
+
+    describe "GET 'about'" do
+      it "should be successful" do
+	get 'about'
+	response.should be_success
+      end
+
+      it "should have the right title" do
+	get 'about'
+	response.should have_selector("title",
+				      :content => @base_title + " | About")
+      end
     end
-  end
-end
+ describe "GET 'help'" do
+      it "should be successful" do
+	get 'help'
+	response.should be_success
+      end
+
+      it "should have the right title" do
+	get 'help'
+	response.should have_selector("title",
+				      :content => @base_title + " | Help")
+      end
+    end
+ end
